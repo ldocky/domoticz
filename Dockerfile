@@ -32,7 +32,7 @@ RUN 	apt-get remove -y git cmake build-essential libssl-dev libboost-dev libboos
   	rm -rf /var/lib/apt/lists/*
 
 RUN 	echo "Europe/London" > /etc/timezone
-RUN 	sudo dpkg-reconfigure -f noninteractive tzdata
+RUN 	dpkg-reconfigure -f noninteractive tzdata
 
 VOLUME ["/src/domoticz/scripts/lua", "/src/domoticz/backups", "/config"]
 
