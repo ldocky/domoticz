@@ -31,6 +31,7 @@ RUN 	apt-get remove -y git cmake build-essential libssl-dev libboost-dev libboos
   	apt-get clean && \
   	rm -rf /var/lib/apt/lists/*
 
+RUN echo "Europe/London" > /etc/timezone
 
 VOLUME ["/src/domoticz/scripts/lua", "/src/domoticz/backups", "/config"]
 
