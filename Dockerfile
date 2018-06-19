@@ -1,7 +1,10 @@
-FROM ubuntu:latest
+FROM ubuntu:xenial
 MAINTAINER ldocky 
 
 ENV DEBIAN_FRONTEND=noninteractive
+
+RUN	apt-get install -y software-properties-common 
+RUN	add-apt-repository -y ppa:boost-latest/ppa
 
 RUN apt-get update && apt-get install -y \
 	git \
