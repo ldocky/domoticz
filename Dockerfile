@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM ubuntu:latest
 MAINTAINER ldocky 
 
 ENV DEBIAN_FRONTEND=noninteractive
@@ -10,9 +10,9 @@ RUN apt-get update && apt-get install -y \
 	libssl-dev \
 	cmake \
 	build-essential \
-	ibboost1.61-dev \
-	libboost-thread1.61-dev \
-	libboost-system1.61-dev \
+	libboost-dev \
+	libboost-thread-dev \
+	libboost-system-dev \
 	libsqlite3-dev \
 	curl \
 	libcurl4-openssl-dev \
@@ -21,6 +21,18 @@ RUN apt-get update && apt-get install -y \
 	python3-dev \
 	nano
 
+RUN mkdir boost &&\
+cd boost &&\
+wget https://dl.bintray.com/boostorg/release/1.67.0/source/boost_1_67_0.tar.gz &&\
+tar xfz boost_1_67_0.tar.gz &&\
+rm boost_1_67_0.tar.gz &&\
+cd boost_1_67_0/ &&\
+./bootstrap.sh &&\
+./b2 stage threading=multi link=static --with-thread --with-system &&\
+sudo ./b2 install threading=multi link=static --with-thread --with-system &&\
+cd ../../ &&\
+rm -Rf boost/
+
 RUN 	git clone --depth 2 https://github.com/domoticz/domoticz.git /src/domoticz
 
 WORKDIR /src/domoticz
@@ -28,7 +40,7 @@ RUN 	git fetch --unshallow
 RUN 	cmake -DCMAKE_BUILD_TYPE=Release .
 RUN 	make
 
-RUN 	apt-get remove -y git cmake build-essential libssl-dev libboost1.61-dev libboost-system1.61-dev libboost-thread1.61-dev libsqlite3-dev libusb-dev zlib1g-dev && \
+RUN 	apt-get remove -y git cmake build-essential libssl-dev libboost-dev libboost-system-dev libboost-thread-dev libsqlite3-dev libusb-dev zlib1g-dev && \
   	apt-get autoremove -y && \ 
   	apt-get clean && \
   	rm -rf /var/lib/apt/lists/*
