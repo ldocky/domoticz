@@ -20,7 +20,7 @@ RUN apt-get update && apt-get install -y \
 
 RUN mkdir boost &&\
 cd boost &&\
-wget https://dl.bintray.com/boostorg/release/1.67.0/source/boost_1_67_0.tar.gz &&\
+curl https://dl.bintray.com/boostorg/release/1.67.0/source/boost_1_67_0.tar.gz &&\
 tar xfz boost_1_67_0.tar.gz &&\
 rm boost_1_67_0.tar.gz &&\
 cd boost_1_67_0/ &&\
