@@ -27,7 +27,7 @@ rm boost_1_67_0.tar.gz &&\
 cd boost_1_67_0/ &&\
 ./bootstrap.sh &&\
 ./b2 stage threading=multi link=static --with-thread --with-system &&\
-sudo ./b2 install threading=multi link=static --with-thread --with-system &&\
+./b2 install threading=multi link=static --with-thread --with-system &&\
 cd ../../ &&\
 rm -Rf boost/
 
