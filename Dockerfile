@@ -4,10 +4,6 @@ MAINTAINER ldocky
 ENV DEBIAN_FRONTEND=noninteractive
 
 
-RUN	apt-get update
-RUN	apt-get install -y software-properties-common 
-RUN	add-apt-repository -y ppa:boost-latest/ppa
-
 RUN apt-get update && apt-get install -y \
 	git \
 	tzdata \
@@ -32,7 +28,7 @@ RUN 	git fetch --unshallow
 RUN 	cmake -DCMAKE_BUILD_TYPE=Release .
 RUN 	make
 
-RUN 	apt-get remove -y git cmake build-essential libssl-dev libboost-dev libboost-thread-dev libboost-system-dev libsqlite3-dev libusb-dev zlib1g-dev && \
+RUN 	apt-get remove -y git cmake build-essential libssl-dev libboost1.65-dev libboost1.65-thread-dev libboost1.65-system-dev libsqlite3-dev libusb-dev zlib1g-dev && \
   	apt-get autoremove -y && \ 
   	apt-get clean && \
   	rm -rf /var/lib/apt/lists/*
