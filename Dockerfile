@@ -28,7 +28,7 @@ RUN 	git fetch --unshallow
 RUN 	cmake -DCMAKE_BUILD_TYPE=Release .
 RUN 	make
 
-RUN 	apt-get remove -y git cmake build-essential libssl-dev libboost1.65-dev libboost1.65-thread-dev libboost1.65-system-dev libsqlite3-dev libusb-dev zlib1g-dev && \
+RUN 	apt-get remove -y git cmake build-essential libssl-dev libboost1.61-dev libboost-system1.61-dev libboost-thread1.61-dev libsqlite3-dev libusb-dev zlib1g-dev && \
   	apt-get autoremove -y && \ 
   	apt-get clean && \
   	rm -rf /var/lib/apt/lists/*
