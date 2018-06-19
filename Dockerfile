@@ -10,9 +10,6 @@ RUN apt-get update && apt-get install -y \
 	libssl-dev \
 	cmake \
 	build-essential \
-	libboost-dev \
-	libboost-thread-dev \
-	libboost-system-dev \
 	libsqlite3-dev \
 	curl \
 	libcurl4-openssl-dev \
