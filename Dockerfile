@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:xenial
 MAINTAINER ldocky 
 
 ENV DEBIAN_FRONTEND=noninteractive
@@ -14,7 +14,6 @@ RUN apt-get update && apt-get install -y \
 	curl \
 	libcurl4-openssl-dev \
 	libusb-dev \
-	libusb-0.1-4 \
 	zlib1g-dev \
 	python3-dev \
 	wget \
