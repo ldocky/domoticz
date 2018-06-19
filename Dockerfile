@@ -16,11 +16,12 @@ RUN apt-get update && apt-get install -y \
 	libusb-dev \
 	zlib1g-dev \
 	python3-dev \
+	wget \
 	nano
 
 RUN mkdir boost &&\
 cd boost &&\
-curl https://dl.bintray.com/boostorg/release/1.67.0/source/boost_1_67_0.tar.gz &&\
+wget https://dl.bintray.com/boostorg/release/1.67.0/source/boost_1_67_0.tar.gz &&\
 tar xfz boost_1_67_0.tar.gz &&\
 rm boost_1_67_0.tar.gz &&\
 cd boost_1_67_0/ &&\
