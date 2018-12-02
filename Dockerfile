@@ -17,6 +17,7 @@ RUN apt-get update && apt-get install -y \
 	zlib1g-dev \
 	python3-dev \
 	wget \
+	libudev-dev \
 	nano
 
 RUN mkdir boost &&\
@@ -31,6 +32,11 @@ cd boost_1_67_0/ &&\
 cd ../../ &&\
 rm -Rf boost/
 
+RUN git clone --depth 2 https://github.com/OpenZWave/open-zwave /src/open-zwave-read-only
+WORKDIR /src/open-zwave-read-only
+RUN git fetch --unshallow
+RUN make
+
 RUN 	git clone --depth 2 https://github.com/domoticz/domoticz.git /src/domoticz
 
 WORKDIR /src/domoticz
@@ -38,7 +44,7 @@ RUN 	git fetch --unshallow
 RUN 	cmake -DCMAKE_BUILD_TYPE=Release .
 RUN 	make
 
-RUN 	apt-get remove -y git cmake build-essential libssl-dev libboost-dev libboost-system-dev libboost-thread-dev libsqlite3-dev libusb-dev zlib1g-dev && \
+RUN 	apt-get remove -y git cmake build-essential libssl-dev libboost-dev libboost-system-dev libboost-thread-dev libsqlite3-dev libusb-dev zlib1g-dev libudev-dev && \
   	apt-get autoremove -y && \ 
   	apt-get clean && \
   	rm -rf /var/lib/apt/lists/*
