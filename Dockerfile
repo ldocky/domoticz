@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM ubuntu:bionic
 MAINTAINER ldocky 
 
 ENV DEBIAN_FRONTEND=noninteractive
