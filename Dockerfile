@@ -34,7 +34,7 @@ rm -Rf boost/
 
 RUN git clone --depth 2 https://github.com/OpenZWave/open-zwave /src/open-zwave-read-only
 WORKDIR /src/open-zwave-read-only
-RUN git fetch --unshallow
+RUN git pull
 RUN make
 
 RUN 	git clone --depth 2 https://github.com/domoticz/domoticz.git /src/domoticz
