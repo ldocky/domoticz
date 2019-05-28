@@ -32,6 +32,19 @@ cd boost_1_67_0/ &&\
 cd ../../ &&\
 rm -Rf boost/
 
+
+RUN mkdir cmakeb &&\
+cd cmakeb &&\
+wget https://cmake.org/files/v3.14/cmake-3.14.4.tar.gz &&\
+tar xvf cmake-3.14.4.tar.gz &&\
+cd cmake-3.14.4 &&\
+./bootstrap &&\
+make &&\
+make install &&\
+cd ../../ &&\
+rm -Rf cmakeb/
+
+
 RUN git clone --depth 2 https://github.com/OpenZWave/open-zwave /src/open-zwave-read-only
 WORKDIR /src/open-zwave-read-only
 RUN git pull
