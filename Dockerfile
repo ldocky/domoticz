@@ -22,10 +22,10 @@ RUN apt-get update && apt-get install -y \
 
 RUN mkdir boost &&\
 cd boost &&\
-wget https://dl.bintray.com/boostorg/release/1.67.0/source/boost_1_67_0.tar.gz &&\
-tar xfz boost_1_67_0.tar.gz &&\
-rm boost_1_67_0.tar.gz &&\
-cd boost_1_67_0/ &&\
+wget https://dl.bintray.com/boostorg/release/1.70.0/source/boost_1_70_0.tar.gz &&\
+tar xfz boost_1_70_0.tar.gz &&\
+rm boost_1_70_0.tar.gz &&\
+cd boost_1_70_0/ &&\
 ./bootstrap.sh &&\
 ./b2 stage threading=multi link=static --with-thread --with-system &&\
 ./b2 install threading=multi link=static --with-thread --with-system &&\
