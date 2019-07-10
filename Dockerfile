@@ -18,7 +18,11 @@ RUN apt-get update && apt-get install -y \
 	python3-dev \
 	wget \
 	libudev-dev \
-	nano
+	nano \
+	libboost-dev \
+	libboost-thread-dev \
+	libboost-system-dev 
+
 
 RUN mkdir boost &&\
 cd boost &&\
@@ -35,9 +39,9 @@ rm -Rf boost/
 
 RUN mkdir cmakeb &&\
 cd cmakeb &&\
-wget https://cmake.org/files/v3.14/cmake-3.14.4.tar.gz &&\
-tar xvf cmake-3.14.4.tar.gz &&\
-cd cmake-3.14.4 &&\
+wget https://cmake.org/files/v3.14/cmake-3.14.5.tar.gz &&\
+tar xvf cmake-3.14.5.tar.gz &&\
+cd cmake-3.14.5 &&\
 ./bootstrap &&\
 make &&\
 make install &&\
