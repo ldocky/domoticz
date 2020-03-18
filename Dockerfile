@@ -26,10 +26,10 @@ RUN apt-get update && apt-get install -y \
 
 RUN mkdir boost &&\
 cd boost &&\
-wget https://dl.bintray.com/boostorg/release/1.70.0/source/boost_1_70_0.tar.gz &&\
-tar xfz boost_1_70_0.tar.gz &&\
-rm boost_1_70_0.tar.gz &&\
-cd boost_1_70_0/ &&\
+wget https://dl.bintray.com/boostorg/release/1.72.0/source/boost_1_72_0.tar.gz &&\
+tar xfz boost_1_72_0.tar.gz &&\
+rm boost_1_72_0.tar.gz &&\
+cd boost_1_72_0/ &&\
 ./bootstrap.sh &&\
 ./b2 stage threading=multi link=static --with-thread --with-system &&\
 ./b2 install threading=multi link=static --with-thread --with-system &&\
@@ -39,9 +39,9 @@ rm -Rf boost/
 
 RUN mkdir cmakeb &&\
 cd cmakeb &&\
-wget https://cmake.org/files/v3.14/cmake-3.14.5.tar.gz &&\
-tar xvf cmake-3.14.5.tar.gz &&\
-cd cmake-3.14.5 &&\
+wget https://cmake.org/files/v3.16/cmake-3.16.5.tar.gz &&\
+tar xvf cmake-3.16.5.tar.gz &&\
+cd cmake-3.16.5 &&\
 ./bootstrap &&\
 make &&\
 make install &&\
