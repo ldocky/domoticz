@@ -58,6 +58,7 @@ RUN git clone --depth 2 https://github.com/OpenZWave/open-zwave /src/open-zwave-
 WORKDIR /src/open-zwave-read-only
 RUN git pull
 RUN make
+RUN make install
 
 RUN 	git clone --depth 2 https://github.com/domoticz/domoticz.git /src/domoticz
 
