@@ -12,7 +12,6 @@ RUN apt-get update && apt-get install -y \
 	build-essential \
 	libsqlite3-dev \
 	curl \
-	libcurl4-openssl-dev \
 	libusb-dev \
 	zlib1g-dev \
 	python3-dev \
@@ -26,6 +25,8 @@ RUN apt-get update && apt-get install -y \
 	libcurl4-gnutls-dev \
 	libcereal-dev \
 	liblua5.3-dev \
+	gcc \
+	g++ \
 	uthash-dev
 
 RUN mkdir boost &&\
