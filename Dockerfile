@@ -21,8 +21,14 @@ RUN apt-get update && apt-get install -y \
 	nano \
 	libboost-dev \
 	libboost-thread-dev \
-	libboost-system-dev 
-
+	libboost-system-dev \
+	libssl-dev \
+	gcc \
+	g++ \
+	libcurl4-gnutls-dev \
+	libcereal-dev \
+	liblua5.3-dev \
+	uthash-dev
 
 RUN mkdir boost &&\
 cd boost &&\
@@ -39,9 +45,9 @@ rm -Rf boost/
 
 RUN mkdir cmakeb &&\
 cd cmakeb &&\
-wget https://cmake.org/files/v3.16/cmake-3.16.5.tar.gz &&\
-tar xvf cmake-3.16.5.tar.gz &&\
-cd cmake-3.16.5 &&\
+wget https://cmake.org/files/v3.17/cmake-3.17.0.tar.gz &&\
+tar xvf cmake-3.17.0.tar.gz &&\
+cd cmake-3.17.0 &&\
 ./bootstrap &&\
 make &&\
 make install &&\
@@ -61,7 +67,7 @@ RUN 	git fetch --unshallow
 RUN 	cmake -DCMAKE_BUILD_TYPE=Release .
 RUN 	make
 
-RUN 	apt-get remove -y git cmake build-essential libssl-dev libboost-dev libboost-system-dev libboost-thread-dev libsqlite3-dev zlib1g-dev && \
+RUN 	apt-get remove -y git cmake build-essential libssl-dev libboost-dev libboost-system-dev libboost-thread-dev libsqlite3-dev zlib1g-dev libcurl4-gnutls-dev libcereal-dev liblua5.3-dev uthash-dev gcc g++ && \
   	apt-get autoremove -y && \ 
   	apt-get clean && \
   	rm -rf /var/lib/apt/lists/*
