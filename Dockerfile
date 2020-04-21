@@ -22,7 +22,7 @@ RUN apt-get update && apt-get install -y \
 	libboost-thread-dev \
 	libboost-system-dev \
 	libssl-dev \
-	libcurl4-gnutls-dev \
+	libcurl4-openssl-dev \
 	libcereal-dev \
 	liblua5.3-dev \
 	gcc \
@@ -67,7 +67,7 @@ RUN 	git fetch --unshallow
 RUN 	cmake -DCMAKE_BUILD_TYPE=Release .
 RUN 	make
 
-RUN 	apt-get remove -y git cmake build-essential libssl-dev libboost-dev libboost-system-dev libboost-thread-dev libsqlite3-dev zlib1g-dev libcurl4-gnutls-dev libcereal-dev liblua5.3-dev uthash-dev gcc g++ && \
+RUN 	apt-get remove -y git cmake build-essential libssl-dev libboost-dev libboost-system-dev libboost-thread-dev libsqlite3-dev zlib1g-dev libcurl4-openssl-dev libcereal-dev liblua5.3-dev uthash-dev gcc g++ && \
   	apt-get autoremove -y && \ 
   	apt-get clean && \
   	rm -rf /var/lib/apt/lists/*
