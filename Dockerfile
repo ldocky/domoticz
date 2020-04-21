@@ -23,8 +23,6 @@ RUN apt-get update && apt-get install -y \
 	libboost-thread-dev \
 	libboost-system-dev \
 	libssl-dev \
-	gcc \
-	g++ \
 	libcurl4-gnutls-dev \
 	libcereal-dev \
 	liblua5.3-dev \
