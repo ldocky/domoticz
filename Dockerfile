@@ -1,4 +1,4 @@
-FROM ubuntu:bionic
+FROM ubuntu:focal
 MAINTAINER ldocky 
 
 ENV DEBIAN_FRONTEND=noninteractive
